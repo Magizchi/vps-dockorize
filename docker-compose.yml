@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  node:
+    container_name: node_for_vps
+    build: 
+      context: .
+      dockerfile: dockerfile
+    tty: true
+    volumes:
+     - ./nginx/www/project-1/build:/production/test-1/build
+     - ./nginx/www/project-1/node_modules:/production/test-1/node_modules
+     - ./nginx/www/project-2/build:/production/test-2/build
+     - ./nginx/www/project-2/node_modules:/production/test-2/node_modules
+
+  reverserproxy:
+    image: nginx:latest
+    container_name: nginx_rp
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
+      - "443:443"
+  
+  db:
+    image: mysql:9.0.1
+    container_name: base_de_donnees
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    command: --init-file /docker-entrypoint-initdb.d/init.sql
+    volumes:
+      - ./bdd/init-databases.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin:5.2.1
+    container_name: php-my-admin
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
