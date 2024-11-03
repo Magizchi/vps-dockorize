@@ -24,4 +24,4 @@ jobs:
     
       - name: Run deployment script
         run: |
-          mkdir test githubactions
+          mkdir test
