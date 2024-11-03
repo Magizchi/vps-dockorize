@@ -8,14 +8,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [20.x]
     
     steps:
-      - name: Test secrets
-        run: cat ${{ secrets.PORT }}
       - name: Executing remote command
         uses: appleboy/ssh-action@master
         with:
@@ -24,5 +18,4 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           PORT: ${{ secrets.PORT }}
           # KEY: ${{ secrets.SSHKEY }}
-          script: 
-            mkdir test-from-github
+          script: mkdir test-from-github
