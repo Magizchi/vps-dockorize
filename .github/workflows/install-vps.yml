@@ -15,7 +15,7 @@ jobs:
     
     steps:
       - name: Test secrets
-        run: echo ${{ secrets.PORT }}
+        run: cat ${{ secrets.PORT }}
       - name: Executing remote command
         uses: appleboy/ssh-action@master
         with:
