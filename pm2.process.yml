@@ -1,0 +1,9 @@
+apps:
+  - script: ./nginx/www/project-1/build/index.js
+    name: OpenQuittance
+    instances: 1   # Nombre d'instances de l'application 1
+    port: 3000
+  - script: ./nginx/www/project-2/build/index.js
+    name: TestProjectNdeApp
+    instances: 2   # Une seule instance de l'application 2
+    port: 4000
