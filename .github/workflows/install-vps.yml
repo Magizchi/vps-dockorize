@@ -14,6 +14,8 @@ jobs:
         node-version: [20.x]
     
     steps:
+      - name: Test secrets
+        run: echo ${{ secrets.PORT }}
       - name: Executing remote command
         uses: appleboy/ssh-action@master
         with:
