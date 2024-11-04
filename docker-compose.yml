@@ -12,17 +12,17 @@ services:
      - ./nginx/www/project-1/node_modules:/production/test-1/node_modules
      - ./nginx/www/project-2/build:/production/test-2/build
      - ./nginx/www/project-2/node_modules:/production/test-2/node_modules
+     - ./nginx/www/html:/etc/www/html
 
-  reverserproxy:
-    image: nginx:latest
-    container_name: nginx_rp
-    volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - ./nginx/proxy.conf:/etc/nginx/includes/proxy.conf
+  app:
+    image: 'jc21/nginx-proxy-manager:latest'
     ports:
-      - "80:80"
-      - "443:443"
-  
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
   db:
     image: mysql:9.0.1
     container_name: base_de_donnees
