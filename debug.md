@@ -10,3 +10,7 @@ SQL INIT [ICI](https://stackoverflow.com/questions/39204142/docker-compose-with-
 SQL INIT QUI FONCTIONNE [https://stackoverflow.com/questions/43322033/create-database-on-docker-compose-startup](https://stackoverflow.com/questions/43322033/create-database-on-docker-compose-startup)
 
 https://stackoverflow.com/questions/39204142/docker-compose-with-multiple-databases
+
+GITHUB deploy sur vps [https://dev.to/knowbee/how-to-setup-continuous-deployment-of-a-website-on-a-vps-using-github-actions-54im](https://dev.to/knowbee/how-to-setup-continuous-deployment-of-a-website-on-a-vps-using-github-actions-54im)
+
+reverseproxy [https://phoenixnap.com/kb/docker-nginx-reverse-proxy](https://phoenixnap.com/kb/docker-nginx-reverse-proxy)

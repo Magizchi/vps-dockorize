@@ -18,6 +18,7 @@ services:
     container_name: nginx_rp
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/proxy.conf:/etc/nginx/includes/proxy.conf
     ports:
       - "80:80"
       - "443:443"
